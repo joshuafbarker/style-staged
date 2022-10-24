@@ -1,0 +1,17 @@
+@use "sass:map";
+
+// Color map
+$colors: (
+  "50": rgb(214, 239, 214),
+);
+
+// Shade retrieval function
+// background-color: color.shade('50')
+@function shade($key) {
+  // check if passed key exists in map
+  @if map.has-key($colors, $key) {
+    // if it exists, get the color and return it
+    $color: map.get($colors, $key);
+    @return $color;
+  }
+}
